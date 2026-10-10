@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: process.env.NETLIFY === 'true' ? undefined : 'standalone',
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig
