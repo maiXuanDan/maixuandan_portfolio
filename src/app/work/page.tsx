@@ -1,5 +1,6 @@
 import { PROJECTS, MICRO_CASES } from '@/data/projects'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Link } from 'next-view-transitions'
 import Image from 'next/image'
 
 export default function Work() {
@@ -60,14 +61,23 @@ export default function Work() {
                 )}
 
                 <div className="mt-8">
-                  <a
-                    className="border-border bg-secondary-background text-foreground shadow-shadow rounded-base font-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY cursor-pointer border-2 px-4 py-2 text-center text-sm transition-all hover:shadow-none sm:text-base inline-block"
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.type === 'youtube' ? 'Watch on YouTube' : 'View Case Study'}
-                  </a>
+                  {project.internal && project.slug ? (
+                    <Link
+                      className="border-border bg-secondary-background text-foreground shadow-shadow rounded-base font-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY cursor-pointer border-2 px-4 py-2 text-center text-sm transition-all hover:shadow-none sm:text-base inline-block"
+                      href={`/work/${project.slug}`}
+                    >
+                      View Case Study
+                    </Link>
+                  ) : (
+                    <a
+                      className="border-border bg-secondary-background text-foreground shadow-shadow rounded-base font-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY cursor-pointer border-2 px-4 py-2 text-center text-sm transition-all hover:shadow-none sm:text-base inline-block"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.type === 'youtube' ? 'Watch on YouTube' : 'View Case Study'}
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -87,14 +97,23 @@ export default function Work() {
                 <h3 className="font-heading text-lg sm:text-xl">{item.name}</h3>
                 <p className="mt-1 text-sm sm:text-base">{item.category}</p>
                 <div className="mt-6">
-                  <a
-                    className="border-border bg-secondary-background text-foreground shadow-shadow rounded-base font-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY cursor-pointer border-2 px-4 py-2 text-center text-sm transition-all hover:shadow-none sm:text-base inline-block"
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Case Study
-                  </a>
+                  {item.internal && item.slug ? (
+                    <Link
+                      className="border-border bg-secondary-background text-foreground shadow-shadow rounded-base font-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY cursor-pointer border-2 px-4 py-2 text-center text-sm transition-all hover:shadow-none sm:text-base inline-block"
+                      href={`/work/${item.slug}`}
+                    >
+                      View Case Study
+                    </Link>
+                  ) : (
+                    <a
+                      className="border-border bg-secondary-background text-foreground shadow-shadow rounded-base font-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY cursor-pointer border-2 px-4 py-2 text-center text-sm transition-all hover:shadow-none sm:text-base inline-block"
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Case Study
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

@@ -22,6 +22,10 @@ export default function Nav() {
       text: 'Skills',
     },
     {
+      path: '/certificates',
+      text: 'Certificates',
+    },
+    {
       path: '/#contact',
       text: 'Contact',
     },
